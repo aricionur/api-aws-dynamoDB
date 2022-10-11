@@ -1,0 +1,11 @@
+import boto3
+
+dynamodb = boto3.client('dynamodb', region_name='eu-central-1')
+
+# resp = dynamodb.execute_statement(
+#     Statement='SELECT * FROM Books WHERE Author = \'Antje Barth\' AND Title = \'Data Science on AWS\'')
+# print(resp['Items'])
+
+resp = dynamodb.execute_statement(
+    Statement='SELECT * FROM Books.CategoryIndex WHERE Category = \'Technology\'')
+print(resp['Items'])
